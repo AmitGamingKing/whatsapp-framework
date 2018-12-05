@@ -217,7 +217,6 @@ def set_profile_picture(path, success=None, error=None):
     picture, preview = make_picture_and_preview(path)
     entity._sendIq(SetPictureIqProtocolEntity(entity.getOwnJid(), preview, picture), success, error)
 
-
 def set_group_picture(path, group_jid, success=None, error=None):
     picture, preview = make_picture_and_preview(path)
     entity._sendIq(SetPictureIqProtocolEntity(group_jid, preview, picture), success, error)
@@ -225,6 +224,11 @@ def set_group_picture(path, group_jid, success=None, error=None):
 def kick_group_member(number, group_jid, success=None, error=None):
     jid = Jid.normalize(number)
     iq = RemoveParticipantsIqProtocolEntity(group_jid, [jid, ])
+    entity._sendIq(iq, success, error)
+    
+def add_group_member(number, group_jid, success=None, error=None):
+    jid = Jid.normalize(number)
+    iq = AddParticipantsIqProtocolEntity(group_jid, [jid, ])
     entity._sendIq(iq, success, error)
         
 def make_picture_and_preview(path):
