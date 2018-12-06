@@ -16,7 +16,6 @@ from yowsup.layers.protocol_profiles.protocolentities import *
 from yowsup.layers.protocol_contacts.protocolentities import *
 from yowsup.layers.protocol_groups.protocolentities import *
 
-
 from app.utils import helper
 from app.utils import media_decrypter
 
